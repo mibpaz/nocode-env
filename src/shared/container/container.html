@@ -1,0 +1,14 @@
+@if (id() != null) { @let c = coords();
+<div
+  #containerElement
+  class="absolute p-2.5 z-10"
+  [style.width.px]="c[1][0] - c[0][0]"
+  [style.height.px]="c[1][1] - c[0][1]"
+  [style.background-color]="containerColor"
+  [style.transform]="'translate3d(' + c[0][0] + 'px, ' + c[0][1] + 'px, 0)'"
+  (mousemove)="resize.emit($event)"
+>
+  {{ content() }}
+  <div class="resize-action"></div>
+</div>
+}

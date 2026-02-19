@@ -1,0 +1,25 @@
+<aside class="w-64 h-full bg-base-200 p-4 flex flex-col items-center gap-4">
+  <div
+    class="flex items-center gap-2 justify-center w-full p-4 bg-base-300 border border-base-100 rounded-md"
+  >
+    <app-icon name="featherMonitor" size="24" />
+    <h1 class="text-lg font-bold">No-Code</h1>
+  </div>
+  <form id="add-container-form" (submit)="onAddContainer($event)">
+    <label class="label" for="content">Container content</label>
+    <textarea
+      class="textarea textarea-bordered w-full"
+      rows="10"
+      id="content"
+      [formControl]="formControl"
+    ></textarea>
+  </form>
+  <button class="btn btn-primary w-full" form="add-container-form" type="submit">
+    Add container
+    <app-icon name="featherPlus" size="20" />
+  </button>
+  <button class="btn btn-primary w-full">
+    Export setup
+    <app-icon name="featherDownload" size="20" />
+  </button>
+</aside>

@@ -1,0 +1,14 @@
+<div class="flex h-full">
+  <app-sidebar (addContainer)="onAddContainer($event)" />
+  <section class="flex-1 p-4">
+    <div #canvas class="relative w-full h-full rounded-md bg-base-200 overflow-hidden">
+      @for (container of containers; track container.id) {
+      <app-container
+        [id]="container.id"
+        [content]="container.content"
+        [coords]="container.coords"
+      />
+      }
+    </div>
+  </section>
+</div>
