@@ -1,10 +1,10 @@
-import { Component, input, output, viewChild } from '@angular/core';
+import { Component, ElementRef, input, output, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.html',
   host: {
-    '(mousemove)': 'onMouseMove($event)',
+    '(mouseup)': 'onResizeEnd()',
   },
   styleUrl: './container.css',
 })
@@ -12,8 +12,8 @@ export class ContainerComponent {
   id = input.required<number>();
   content = input.required<string>();
   coords = input.required<[[number, number], [number, number]]>();
-  readonly resize = output<MouseEvent>();
-  containerElement = viewChild<HTMLDivElement>('containerElement');
+  readonly resized = output<{ width: number; height: number }>();
+  containerElement = viewChild<ElementRef<HTMLDivElement>>('containerElement');
 
   get containerColor(): string {
     const idVal = this.id();
@@ -22,7 +22,18 @@ export class ContainerComponent {
     return `hsl(${hue}, 60%, 65%)`;
   }
 
-  onMouseMove(event: MouseEvent) {
-    this.resize.emit(event);
+  onResizeEnd() {
+    const element = this.containerElement()?.nativeElement;
+
+    if (!element) {
+      return;
+    }
+
+    const currentWidth = this.coords()[1][0] - this.coords()[0][0];
+    const currentHeight = this.coords()[1][1] - this.coords()[0][1];
+
+    if (element.offsetWidth !== currentWidth || element.offsetHeight !== currentHeight) {
+      this.resized.emit({ width: element.offsetWidth, height: element.offsetHeight });
+    }
   }
 }

@@ -9,12 +9,12 @@ import { Icon } from '../../shared/icon';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
-  protected readonly formControl = new FormControl('');
+  protected readonly containerContent = new FormControl('');
   readonly addContainer = output<string | null>();
 
   onAddContainer(event: SubmitEvent) {
     event.preventDefault();
-    this.addContainer.emit(this.formControl.value);
-    this.formControl.reset();
+    this.addContainer.emit(this.containerContent.value);
+    this.containerContent.reset();
   }
 }

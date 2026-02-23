@@ -6,9 +6,9 @@
   [style.height.px]="c[1][1] - c[0][1]"
   [style.background-color]="containerColor"
   [style.transform]="'translate3d(' + c[0][0] + 'px, ' + c[0][1] + 'px, 0)'"
-  (mousemove)="resize.emit($event)"
+  [style.resize]="'both'"
+  [style.overflow]="'auto'"
 >
   {{ content() }}
-  <div class="resize-action"></div>
 </div>
 }

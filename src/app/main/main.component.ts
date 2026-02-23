@@ -16,6 +16,7 @@ export class Main {
   gap = 8;
   bounds: [number, number] = [0, 0];
   baseColor: [number, number, number] = [84, 0, 59];
+  defaultSize: [number, number] = [100, 100];
 
   ngAfterViewInit() {
     const el = this.canvas();
@@ -25,8 +26,17 @@ export class Main {
     }
   }
 
+  onContainerResized(container: Container, size: { width: number; height: number }) {
+    container.coords = [
+      [container.coords[0][0], container.coords[0][1]],
+      [container.coords[0][0] + size.width, container.coords[0][1] + size.height],
+    ];
+
+    this.defaultSize = [size.width, size.height];
+  }
+
   onAddContainer(value: string | null) {
-    const coords = this.getNextCoords([100, 100]);
+    const coords = this.getNextCoords(this.defaultSize);
     console.log(`Coords: ${JSON.stringify(coords)}`);
 
     const container = new Container(this.containers.length + 1, value ?? '', coords);
