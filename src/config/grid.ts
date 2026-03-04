@@ -19,5 +19,13 @@ export const gridOptions: GridsterConfig = {
       sw: true,
       nw: true
     }
-  }
+  },
+  draggable: {
+    delayStart: 0,
+    enabled: true,
+    ignoreContentClass: 'gridster-item-content',
+    ignoreContent: false,
+    dragHandleClass: 'drag-handler',
+    dropOverItems: false,
+  },
 };
