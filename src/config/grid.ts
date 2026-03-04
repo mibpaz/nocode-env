@@ -4,6 +4,7 @@ export const gridOptions: GridsterConfig = {
   gridType: GridType.Fit,
   minCols: 4,
   minRows: 4,
+  pushItems: true,
   displayGrid: DisplayGrid.None,
   compactType: CompactType.CompactLeftAndUp,
   resizable: {
