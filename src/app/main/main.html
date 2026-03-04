@@ -1,15 +1,14 @@
 <div class="flex h-full">
-  <app-sidebar (addContainer)="onAddContainer($event)" />
+  <app-sidebar
+    (onAddContainer)="onAddContainer($event)"
+    (onExport)="exportSetup()"
+    (onImport)="importSetup($event)"
+  />
   <section class="flex-1 p-4">
-    <div #canvas class="relative w-full h-full rounded-md bg-base-200 overflow-hidden">
-      @for (container of containers; track container.id) {
-      <app-container
-        [id]="container.id"
-        [content]="container.content"
-        [coords]="container.coords"
-        (resized)="onContainerResized(container, $event)"
-      />
+    <gridster #gridster [options]="options" style="background-color: var(--color-base-200)">
+      @for (item of items; track item['id']) {
+      <app-grid-item [item]="item" (removeItem)="removeItem(item)" />
       }
-    </div>
+    </gridster>
   </section>
 </div>

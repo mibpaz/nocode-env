@@ -5,7 +5,7 @@
     <app-icon name="featherMonitor" size="24" />
     <h1 class="text-lg font-bold">No-Code</h1>
   </div>
-  <form id="add-container-form" (submit)="onAddContainer($event)">
+  <form id="add-container-form" (submit)="addContainer($event)">
     <label class="label" for="content">Container content</label>
     <textarea
       class="textarea textarea-bordered w-full"
@@ -18,8 +18,14 @@
     Add container
     <app-icon name="featherPlus" size="20" />
   </button>
-  <button class="btn btn-primary w-full">
+  <hr class="w-full" />
+  <button class="btn btn-primary w-full" (click)="exportSetup()" type="button">
     Export setup
     <app-icon name="featherDownload" size="20" />
   </button>
+  <button class="btn btn-primary w-full" (click)="triggerImport()" type="button">
+    Import setup
+    <app-icon name="featherUpload" size="20" />
+  </button>
+  <input type="file" (change)="importSetup($event)" id="import-file" hidden />
 </aside>

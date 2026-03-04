@@ -1,0 +1,17 @@
+<gridster-item
+  [item]="item()"
+  class="rounded-lg relative"
+  (mouseenter)="toggleOptions()"
+  (mouseleave)="toggleOptions()"
+>
+  <div class="w-full h-full bg-base-300 border border-slate-700 rounded-lg">
+    @if (showOptions()) {
+    <div id="options" class="absolute top-2 right-2">
+      <button class="btn btn-sm btn-circle btn-ghost" (click)="onRemoveItem($event)">
+        <app-icon name="featherTrash" size="16" />
+      </button>
+    </div>
+    }
+    <div class="flex items-center justify-center h-full">{{ itemContent }}</div>
+  </div>
+</gridster-item>
