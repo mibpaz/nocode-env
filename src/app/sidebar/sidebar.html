@@ -1,12 +1,10 @@
-<aside class="w-64 h-full bg-base-200 p-4 flex flex-col items-center gap-4">
-  <div
-    class="flex items-center gap-2 justify-center w-full p-4 bg-base-300 border border-base-100 rounded-md"
-  >
-    <app-icon name="featherMonitor" size="24" />
-    <h1 class="text-lg font-bold">No-Code</h1>
+<aside class="w-64 h-full bg-base-300 p-4 flex flex-col items-center gap-6">
+  <div class="flex items-center justify-center gap-3 pt-2 w-full">
+    <app-icon name="phosphorPackageDuotone" size="24" class="mt-0.5" />
+    <h1 class="text-lg font-bold mb-0.5">No-Code</h1>
   </div>
   <form id="add-container-form" (submit)="addContainer($event)">
-    <label class="label" for="content">Container content</label>
+    <label class="label" for="content">Text</label>
     <textarea
       class="textarea textarea-bordered w-full"
       rows="10"
@@ -14,18 +12,18 @@
       [formControl]="containerContent"
     ></textarea>
   </form>
-  <button class="btn btn-primary w-full" form="add-container-form" type="submit">
+  <button class="btn btn-primary w-full gap-2" form="add-container-form" type="submit">
+    <app-icon name="phosphorPlusBold" size="18" class="mt-0.5" />
     Add container
-    <app-icon name="featherPlus" size="20" />
   </button>
-  <hr class="w-full" />
-  <button class="btn btn-primary w-full" (click)="exportSetup()" type="button">
+  <hr class="w-full border-neutral-500" />
+  <button class="btn btn-primary w-full gap-2" (click)="exportSetup()" type="button">
+    <app-icon name="phosphorArrowSquareOutBold" size="18" class="mt-0.5" />
     Export setup
-    <app-icon name="featherDownload" size="20" />
   </button>
-  <button class="btn btn-primary w-full" (click)="triggerImport()" type="button">
+  <button class="btn btn-primary w-full gap-2" (click)="triggerImport()" type="button">
+    <app-icon name="phosphorFolderOpenBold" size="18" class="mt-0.5" />
     Import setup
-    <app-icon name="featherUpload" size="20" />
   </button>
   <input type="file" (change)="importSetup($event)" id="import-file" hidden />
 </aside>

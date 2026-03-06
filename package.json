@@ -31,6 +31,7 @@
     "@angular/router": "^21.1.0",
     "@ng-icons/core": "^33.1.0",
     "@ng-icons/feather-icons": "^33.1.0",
+    "@ng-icons/phosphor-icons": "^33.1.0",
     "angular-gridster2": "^21.0.1",
     "daisyui": "^5.5.18",
     "rxjs": "~7.8.0",

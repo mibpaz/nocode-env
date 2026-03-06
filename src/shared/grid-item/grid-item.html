@@ -4,11 +4,11 @@
   (mouseenter)="toggleOptions()"
   (mouseleave)="toggleOptions()"
 >
-  <div class="w-full h-full bg-base-300 border border-slate-700 rounded-lg">
+  <div class="w-full h-full bg-neutral rounded-lg">
     @if (showOptions()) {
     <div id="options" class="absolute top-2 right-2">
       <button class="btn btn-sm btn-circle btn-ghost" (click)="onRemoveItem($event)">
-        <app-icon name="featherTrash" size="16" />
+        <app-icon name="phosphorTrashBold" size="18" class="text-error mt-0.5" />
       </button>
     </div>
     }
